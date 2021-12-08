@@ -5,7 +5,10 @@ Rails.application.routes.draw do
 
       devise_scope :user do
         authenticated :user do
+          # get ':user/edit-profile' => 'devise/registrations#edit', :as => :edit_user_profile
+          devise_for :users, path: ':user/edit-profile', only: [:registrations, :passwords]
           get '/', to: 'admin#index', as: :admin_root
+
 
 
         end
