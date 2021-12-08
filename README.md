@@ -1,9 +1,6 @@
-# README
+# Lakeside Liquor
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+A web application for a Liquor Store in Alva Oklahoma. This app will use Ruby on rails to display basic information about the business as well as recipes for cocktails.  
 
 * Ruby version
 
