@@ -1,0 +1,43 @@
+<%= render 'admin/header' %>
+
+<section class="page-section ">
+      <div class="container">
+
+        <div class="about-heading-content">
+          <div class="row">
+            <div class="col-xl-9 col-lg-10 mx-auto">
+              <div class="bg-faded rounded p-5">
+                <h1>Products</h1>
+
+                <table class='table table-bordered table-striped table-hover'>
+                  <thead class="table-dark">
+                    <tr>
+                      <th>Name</th>
+
+                      <th>Image url</th>
+                      <th colspan="3"></th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <% @products.each do |product| %>
+                      <tr>
+                        <td><%= link_to product.name, product %></td>
+
+                        <td><%= link_to 'Product Image', product.image_url %></td>
+                        <td><%= link_to 'Edit', edit_product_path(product) %></td>
+                        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+
+                <br>
+
+                <%= link_to 'New Product', new_product_path %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

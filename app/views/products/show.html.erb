@@ -1,0 +1,30 @@
+<%= render 'admin/header' %>
+
+
+<section class="page-section ">
+      <div class="container">
+
+        <div class="about-heading-content">
+          <div class="row">
+            <div class="col-xl-9 col-lg-10 mx-auto">
+              <div class="bg-faded rounded p-5">
+                <p>
+                  <strong>Name:</strong>
+                  <%= @product.name %>
+                </p>
+
+                <img src="<%= @product.image_url %>" class="img-thumbnail" alt="<%= @product.name %>">
+
+                <p>
+                  <strong>Description:</strong>
+                  <%= @product.description %>
+                </p>
+
+                <%= link_to 'Edit', edit_product_path(@product) %> |
+                <%= link_to 'Back', products_path %>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
