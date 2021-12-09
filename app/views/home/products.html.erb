@@ -1,0 +1,89 @@
+<%= render 'header' %>
+<%= render 'nav' %>
+
+
+<section class="page-section bg-faded rounded product">
+  <div class="container">
+
+    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Featured Products</h2>
+
+    <div class="divider-custom divider-light">
+      <div class="divider-custom-line"></div>
+      <div class="divider-custom-icon"><i class="fas fa-wine-bottle"></i></div>
+      <div class="divider-custom-line"></div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-12 d-flex justify-content-center" >
+        <ul >
+          <li class='btn btn-secondary active'>All</li>
+          <li class='btn btn-secondary'>Beer</li>
+          <li class='btn btn-secondary'>Wine</li>
+          <li class='btn btn-secondary'>Liquor</li>
+        </ul>
+
+      </div>
+    </div>
+
+
+
+
+
+
+
+      <div class="row justify-content-center row-cols-1 row-cols-md-6 g-4">
+
+        <% @products.each do |product| %>
+
+        <div class="col product-item">
+          <div class="card justify-content-center align-items-center h-100" data-bs-toggle="modal" data-bs-target="#productModal<%= product.id %>">
+            <div class="product-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                <div class="product-item-caption-content text-center text-white"><%= product.name %></div>
+            </div>
+            <img src="<%= product.image_url %>" class="card-img-top img-fluid" alt="<%= product.name %>">
+          </div>
+        </div>
+
+        <!-- Product Modal -->
+        <div class="product-modal modal fade" id="productModal<%= product.id %>" tabindex="-1" aria-labelledby="productModal<%= product.id %>" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                        <div class="modal-body text-center pb-5">
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-8">
+                                        <!-- Portfolio Modal - Name-->
+                                        <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0"><%= product.name %></h2>
+                                        <!-- Icon Divider-->
+                                        <div class="divider-custom">
+                                            <div class="divider-custom-line"></div>
+                                            <div class="divider-custom-icon"><i class="fas fa-wine-bottle"></i></div>
+                                            <div class="divider-custom-line"></div>
+                                        </div>
+
+
+
+                                        <!-- Portfolio Modal - Image-->
+                                          <img class="img-fluid rounded mb-5" src=<%= product.image_url %> alt=<%= product.name %> />
+
+                                        <p class="mb-4"><%= product.description %></p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <% end %>
+
+      </div>
+
+  </div>
+</section>
+
+
+
+<%= render 'footer' %>
