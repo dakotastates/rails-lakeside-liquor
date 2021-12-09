@@ -10,14 +10,67 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_08_072533) do
+ActiveRecord::Schema.define(version: 2021_12_09_053108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "directions", force: :cascade do |t|
+    t.string "direction"
+    t.bigint "recipe_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["recipe_id"], name: "index_directions_on_recipe_id"
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.string "ingredient"
+    t.text "note"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "levels", force: :cascade do |t|
+    t.string "level"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.text "description"
+    t.string "image_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "quantities", force: :cascade do |t|
+    t.string "quantity"
+    t.bigint "ingredient_id", null: false
+    t.bigint "recipe_id", null: false
+    t.text "note"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ingredient_id"], name: "index_quantities_on_ingredient_id"
+    t.index ["recipe_id"], name: "index_quantities_on_recipe_id"
+  end
+
+  create_table "recipe_levels", force: :cascade do |t|
+    t.bigint "level_id", null: false
+    t.bigint "recipe_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["level_id"], name: "index_recipe_levels_on_level_id"
+    t.index ["recipe_id"], name: "index_recipe_levels_on_recipe_id"
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "yield"
+    t.string "active_time"
+    t.string "total_time"
     t.string "image_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -35,4 +88,9 @@ ActiveRecord::Schema.define(version: 2021_12_08_072533) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "directions", "recipes"
+  add_foreign_key "quantities", "ingredients"
+  add_foreign_key "quantities", "recipes"
+  add_foreign_key "recipe_levels", "levels"
+  add_foreign_key "recipe_levels", "recipes"
 end

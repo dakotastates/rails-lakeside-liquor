@@ -1,0 +1,21 @@
+<%= render 'admin/header' %>
+
+
+<section class="page-section ">
+      <div class="container">
+
+        <div class="about-heading-content">
+          <div class="row">
+            <div class="col-xl-9 col-lg-10 mx-auto">
+              <div class="bg-faded rounded p-5">
+                <h1>New Recipe</h1>
+
+                <%= render 'form', recipe: @recipe %>
+
+                <%= link_to 'Back', recipes_path %>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
