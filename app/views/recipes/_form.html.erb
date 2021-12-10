@@ -11,35 +11,44 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field mb-3">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class:'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, class:'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :yield %>
-    <%= form.text_field :yield %>
+    <%= form.text_field :yield, class:'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :active_time %>
-    <%= form.text_field :active_time %>
+    <%= form.text_field :active_time, class:'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :total_time %>
-    <%= form.text_field :total_time %>
+    <%= form.text_field :total_time, class:'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :image_url %>
-    <%= form.text_field :image_url %>
+    <%= form.text_field :image_url, class:'form-control' %>
   </div>
+
+  <div class="field">
+    <p>Level</p>
+    <%= form.collection_select(:level_id, Level.all, :id, :level, include_blank: true) %>
+  </div>
+
+  <p>Ingredients</p>
+
+  <p>Directions</p>
 
   <div class="actions">
     <%= form.submit %>

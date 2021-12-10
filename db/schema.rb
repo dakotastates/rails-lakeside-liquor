@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_09_053108) do
+ActiveRecord::Schema.define(version: 2021_12_10_061506) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,15 +56,6 @@ ActiveRecord::Schema.define(version: 2021_12_09_053108) do
     t.index ["recipe_id"], name: "index_quantities_on_recipe_id"
   end
 
-  create_table "recipe_levels", force: :cascade do |t|
-    t.bigint "level_id", null: false
-    t.bigint "recipe_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["level_id"], name: "index_recipe_levels_on_level_id"
-    t.index ["recipe_id"], name: "index_recipe_levels_on_recipe_id"
-  end
-
   create_table "recipes", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -74,6 +65,7 @@ ActiveRecord::Schema.define(version: 2021_12_09_053108) do
     t.string "image_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "level_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -91,6 +83,4 @@ ActiveRecord::Schema.define(version: 2021_12_09_053108) do
   add_foreign_key "directions", "recipes"
   add_foreign_key "quantities", "ingredients"
   add_foreign_key "quantities", "recipes"
-  add_foreign_key "recipe_levels", "levels"
-  add_foreign_key "recipe_levels", "recipes"
 end

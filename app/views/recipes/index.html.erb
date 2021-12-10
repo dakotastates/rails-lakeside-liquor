@@ -30,7 +30,7 @@
                         <td><%= recipe.yield %></td>
                         <td><%= recipe.active_time %></td>
                         <td><%= recipe.total_time %></td>
-                        <td><%= recipe.image_url %></td>
+                        <td><%= link_to 'Image URL', recipe.image_url  %></td>
 
                         <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
                         <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
