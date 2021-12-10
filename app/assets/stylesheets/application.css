@@ -11585,3 +11585,7 @@ p {
    border-radius: 1rem;
    border-color: #2c3e50;
  }
+
+.quantity{
+  padding: 10px;
+}
