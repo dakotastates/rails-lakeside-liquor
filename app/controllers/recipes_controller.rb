@@ -14,11 +14,17 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     @recipe.directions.build
+    @recipe.ingredients.build
   end
 
   # GET /recipes/1/edit
   def edit
     @recipe.directions.build
+    @ing = @recipe.ingredients.build
+
+    # @recipe.ingredients.last.build_quantity
+
+
   end
 
   # POST /recipes or /recipes.json
@@ -38,7 +44,6 @@ class RecipesController < ApplicationController
 
   # PATCH/PUT /recipes/1 or /recipes/1.json
   def update
-
     respond_to do |format|
       if @recipe.update(recipe_params)
         format.html { redirect_to @recipe, notice: "Recipe was successfully updated." }
@@ -67,6 +72,10 @@ class RecipesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def recipe_params
-      params.require(:recipe).permit(:name, :description, :yield, :active_time, :total_time, :image_url, :level_id, directions_attributes: [:id, :direction])
+      params.require(:recipe).permit(:name, :description, :yield, :active_time, :total_time, :image_url, :level_id,
+        directions_attributes: [:id, :direction, :_destroy],
+        quantities_attributes: [:id, :quantity, :_destroy, ingredient_attributes: [:id, :ingredient, :_destroy]
+      ]
+      )
     end
 end

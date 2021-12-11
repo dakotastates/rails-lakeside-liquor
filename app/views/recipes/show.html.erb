@@ -43,6 +43,11 @@
                 </p>
 
                 <p>Ingredients:</p>
+                <%@recipe.ingredients.each do |ing| %>
+                  <ul>
+                    <li><%=ing.quantity.quantity %> | <%=ing.ingredient %></li>
+                  </ul>
+                <% end %>
                 <p>Directions:</p>
                 <%@recipe.directions.each do |dir| %>
                   <ul>

@@ -48,6 +48,17 @@
 
   <p>Ingredients</p>
 
+  <%= f.fields_for :quantities do |ing_fields| %>
+
+    <%= render 'ingredient_fields', f: ing_fields %>
+
+    <br/>
+  <% end %>
+
+
+  <br/>
+
+  <%= link_to_add_fields 'Add Ingredient', f, :ingredients %>
 
   <p>Directions</p>
 
