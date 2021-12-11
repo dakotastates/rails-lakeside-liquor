@@ -9,7 +9,7 @@
                 <li class="nav-item px-lg-4"><%=link_to 'About', about_path, class:'nav-link text-uppercase' %></li>
                 <li class="nav-item px-lg-4"><%=link_to 'Featured Products', home_products_path, class:'nav-link text-uppercase' %></li>
                 <li class="nav-item px-lg-4"><%=link_to 'Featured Recipes', home_recipes_path, class:'nav-link text-uppercase' %></li>
-                <li class="nav-item px-lg-4"><%=link_to 'Store', '#', class:'nav-link text-uppercase' %></li>
+                <li class="nav-item px-lg-4"><%=link_to 'Contact', store_path, class:'nav-link text-uppercase' %></li>
                 <% if user_signed_in? %>
                 <li class="nav-item mx-0 mx-lg-1"><%= link_to 'Admin', admin_root_path, class: 'nav-link text-uppercase'%></li>
                 <% end %>

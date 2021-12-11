@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+
   scope '/admin' do
       devise_for :users, path: '/', skip: [:registrations, :passwords]
 
@@ -26,5 +27,7 @@ Rails.application.routes.draw do
   get '/about', to: 'about#index'
   get '/products', to: 'home#products', as: :home_products
   get '/recipes', to: 'home#recipes', as: :home_recipes
+  get '/store', to: 'store#index'
+  match '/send_mail', to: 'home#send_mail', via: 'post'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
