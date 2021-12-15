@@ -20,6 +20,14 @@
                   <%= @product.description %>
                 </p>
 
+                <% if (@product.product_category)  %>
+                <p>
+                  <strong>Category:</strong>
+                  <%= @product.product_category.category %>
+                </p>
+
+                <% end %>
+
                 <p>
                   <strong> Pairings: </strong>
                   <%@product.pairings.each do |r| %>
