@@ -2,6 +2,7 @@ class Recipe < ApplicationRecord
   has_many :quantities, dependent: :delete_all
   has_many :directions, dependent: :delete_all
   has_many :ingredients, through: :quantities
+  has_many :pairings, dependent: :delete_all
 
   belongs_to :level
 

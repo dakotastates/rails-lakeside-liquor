@@ -20,6 +20,16 @@
                   <%= @product.description %>
                 </p>
 
+                <p>
+                  <strong> Pairings: </strong>
+                  <%@product.pairings.each do |r| %>
+                    <ul>
+                      <li><%=link_to r.recipe.name, r.recipe  %></li>
+                    </ul>
+                  <% end %>
+
+                </p>
+
                 <%= link_to 'Edit', edit_product_path(@product) %> |
                 <%= link_to 'Back', products_path %>
               </div>

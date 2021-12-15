@@ -33,6 +33,17 @@
                 </p>
 
                 <p>
+                  <strong> Pairings: </strong>
+                  <%@recipe.pairings.each do |pair| %>
+                    <ul>
+                      <li><%= link_to pair.product.name, pair.product  %></li>
+                    </ul>
+                  <% end %>
+
+                </p>
+
+
+                <p>
                   <strong>Image url:</strong>
                   <%= @recipe.image_url %>
                 </p>

@@ -1,24 +1,43 @@
-<h2>Admin Log in</h2>
+<%= render 'home/nav' %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field form-group">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<section class="page-section ">
+  <div class="container">
+    <div class="about-heading-content">
+      <div class="row">
+        <div class="col-xl-9 col-lg-10 mx-auto">
+          <div class="bg-faded rounded p-5">
 
-  <div class="field form-group">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+            <h2>Admin Log in</h2>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field form-group">
-      <%= f.check_box :remember_me, class: 'form-check-input' %>
-      <%= f.label :remember_me %>
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <div class="field form-group">
+                <%= f.label :email %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+              </div>
+
+              <div class="field form-group">
+                <%= f.label :password %><br />
+                <%= f.password_field :password, autocomplete: "current-password" %>
+              </div>
+
+              <% if devise_mapping.rememberable? %>
+                <div class="field form-group">
+                  <%= f.check_box :remember_me, class: 'form-check-input' %>
+                  <%= f.label :remember_me %>
+                </div>
+              <% end %>
+
+              <div class="actions">
+                <%= f.submit "Log in", class: 'btn, btn-secondary' %>
+              </div>
+            <% end %>
+
+
+          </div>
+      </div>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in", class: 'btn, btn-secondary' %>
   </div>
-<% end %>
+ </div>
+</section>
+
+<%= render 'home/footer' %>
