@@ -6,10 +6,10 @@
     <%= f.label :quantity %>
     <%= f.text_field :quantity, placeholder:'Quantity' %>
 
-    <%= f.fields_for :ingredient do |ff| %>
-      <%= ff.label :ingredient %>
-      <%= ff.text_field :ingredient, placeholder:'Ingredient' %>
-    <% end %>
+    <%= f.label :ingredient %>
+    <%= f.text_field :ingredient_name, placeholder:'Ingredient' %>
+
+
 
 
 

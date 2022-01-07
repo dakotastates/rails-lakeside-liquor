@@ -54,9 +54,9 @@
                 </p>
 
                 <p>Ingredients:</p>
-                <%@recipe.ingredients.each do |ing| %>
+                <%@recipe.quantities.each do |q| %>
                   <ul>
-                    <li><%=ing.quantity.quantity %> | <%=ing.ingredient %></li>
+                    <li><%=q.quantity %> | <%=q.ingredient.ingredient %></li>
                   </ul>
                 <% end %>
                 <p>Directions:</p>

@@ -11,46 +11,51 @@
     </div>
   <% end %>
 
-  <div class="field mb-3">
+  <div class="field form-group">
     <%= f.label :name %>
     <%= f.text_field :name, class:'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :description %>
     <%= f.text_area :description, class:'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :yield %>
     <%= f.text_field :yield, class:'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :active_time %>
     <%= f.text_field :active_time, class:'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :total_time %>
     <%= f.text_field :total_time, class:'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :image_url %>
     <%= f.text_field :image_url, class:'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <p>Level</p>
     <%= f.collection_select(:level_id, Level.all, :id, :level, include_blank: true) %>
   </div>
 
+  <div class="field form-group">
+    <p>Pairings</p>
+    <%= f.collection_check_boxes(:product_ids, Product.all, :id, :name) %>
+  </div>
+
   <p>Ingredients</p>
 
-  <%= f.fields_for :quantities do |ing_fields| %>
+  <%= f.fields_for :quantities do |quantity_fields| %>
 
-    <%= render 'ingredient_fields', f: ing_fields %>
+    <%= render 'quantity_fields', f: quantity_fields %>
 
     <br/>
   <% end %>
@@ -58,7 +63,7 @@
 
   <br/>
 
-  <%= link_to_add_fields 'Add Ingredient', f, :ingredients %>
+  <%= link_to_add_fields 'Add Ingredient', f, :quantities %>
 
   <p>Directions</p>
 
