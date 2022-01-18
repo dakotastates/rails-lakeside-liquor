@@ -4,6 +4,7 @@ class HomeController < ApplicationController
 
   def products
     @products = Product.all
+    @categories = ProductCategory.all
   end
 
   def recipes

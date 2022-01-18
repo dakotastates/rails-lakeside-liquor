@@ -4625,13 +4625,15 @@ textarea.form-control-lg {
 .card-img-top,
 .card-img-bottom {
   width: 100%;
-
+  /* height: 15vw;
+  object-fit: cover; */
 }
 
 .card-img,
 .card-img-top {
   border-top-left-radius: calc(0.25rem - 1px);
   border-top-right-radius: calc(0.25rem - 1px);
+  height: 15vw;
   object-fit: cover;
 }
 
@@ -11589,3 +11591,7 @@ p {
 .quantity{
   padding: 10px;
 }
+
+/* .product-container{
+  position: relative;
+} */
