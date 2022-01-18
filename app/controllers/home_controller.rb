@@ -9,6 +9,7 @@ class HomeController < ApplicationController
 
   def recipes
     @recipes = Recipe.all
+    @levels = Level.all
   end
 
   def send_mail
