@@ -2,11 +2,13 @@
 
 ![Homepage ScreenShot](app/assets/images/homepage-screenshot.png)
 
-A web application for a Liquor Store in Alva Oklahoma. This app will use Ruby on rails to display basic information about the business as well as recipes for cocktails, a list of featured products, a contact page using ActionMailer, and a custom admin page for keeping track of featured product and recipes.  
+A web application for a mock Liquor Store in Alva Oklahoma. This app will use Ruby on rails to display basic information about the business as well as recipes for cocktails, a list of featured products, a contact page using ActionMailer, and a custom admin page for keeping track of featured product and recipes.  
 
 This application uses Bootstrap for styling along with Isotope for filtering results.
 
 Start Bootstrap - Business Casual v7.0.6 (https://startbootstrap.com/theme/business-casual)
+
+![App Video](https://drive.google.com/file/d/1uHPuPpydUujuxjwxyvZuGiXXsoBNXs2-/view?usp=sharing)
 
 * Ruby version
 
